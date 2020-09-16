@@ -1,0 +1,52 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix prof: <http://www.w3.org/ns/dx/prof/> .
+@prefix role: <http://www.w3.org/ns/dx/prof/role/> .
+@prefix sdo: <https://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+<https://w3id.org/profile/nvsvoc>
+    a prof:Profile ;
+    dcterms:created "2020-09-16"^^xsd:date ;
+    dcterms:creator <https://www.bodc.ac.uk> ;
+    dcterms:modified "2020-09-6"^^xsd:date ;
+    dcterms:publisher <https://www.bodc.ac.uk> ;
+    dcterms:description "A *profile* of the [Vocabulary Publication (VocPub) Profile](https://w3id.org/profile/vocpub) of SKOS, characterised according to [The Profiles Vocabulary](https://www.w3.org/TR/dx-prof/), used to deliver vocabularies managed by the [British Oceanographic Data Centre](https://www.bodc.ac.uk/)'s [NERC Vocabulary Server (NVS)](https://vocab.nerc.ac.uk)."@en ;
+    dcterms:title "NVS Vocabulary Profile" ;
+    prof:hasResource [
+        dcterms:title "Specification Document"@en ;
+        dcterms:description "This resource described, in human-readable terms, the requirements data must meet to adhere to this Profile" ;
+        dcterms:conformsTo <https://www.w3.org/TR/html52/> ;
+        dcterms:format "text/html" ;
+        prof:hasArtifact <https://w3id.org/profile/nvsvoc/specification.html> ;
+        prof:hasRole role:specification
+    ] ,   
+    [
+        dcterms:title "Validator in SHACL"@en ;
+        dcterms:description "This resource is a SHACL constraint language validator for the validation of RDF data claiming conformance to this profile" ;
+        dcterms:conformsTo <https://www.w3.org/TR/shacl/> ;
+        dcterms:format "text/turtle" ;
+        prof:hasArtifact <https://w3id.org/profile/nvsvoc/validation.ttl> ;
+        prof:hasRole role:validation
+    ] ,
+    [
+        dcterms:title "Profile code repository"@en ;
+        dcterms:description "Code repository storing all Profile artifacts"@en ;
+        prof:hasArtifact <https://github.com/surroundaustralia/nvs-voc-profile> ;
+        prof:hasRole role:repository
+    ] ,
+    [
+        dcterms:title "Repository README file"@en ;
+        dcterms:conformsTo <https://www.w3.org/TR/shacl/> ;
+        dcterms:format "text/markdown" ;
+        prof:hasArtifact <https://w3id.org/profile/nvsvoc/validation.ttl> ;
+        prof:hasRole role:guidance
+    ] ;
+    prof:isProfileOf <https://www.w3.org/TR/swbp-skos-core-spec/> ;
+.
+
+<https://www.bodc.ac.uk>
+    a sdo:GovernmentOrganization ;
+    sdo:name "British Oceanographic Data Centre" ;
+    sdo:url <https://www.bodc.ac.uk> ;
+.

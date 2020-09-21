@@ -46,6 +46,8 @@ For the list of all resources within this profile, see the profile definition:
 
 * **dcterms**
     * <http://purl.org/dc/terms/>
+* **pav**
+    * <http://purl.org/pav/>    
 * **prof**
     * <http://www.w3.org/ns/dx/prof/>
 * **prov**
@@ -68,9 +70,9 @@ Diagrams in this Specification use the elements shown in Figure 1.
 ## 1. Introduction
 The [British Oceanographic Data Centre (BODC)](https://www.bodc.ac.uk) defines a vocabulary as a controlled collection of defined terms that may or may not contain relationships between terms and relationships to terms in other vocabularies. 
 
-The BODC uses the Simple Knowledge Organization System Reference (SKOS)<sup>[SKOS-REF]<sup> to structure their vocabularies and properties from a number of other ontologies (DCTERMS<sup>DCTERMS</sup>, PAV<sup>PAV</sup>) to describe vocabulary elements and their relations.
+The BODC uses the Simple Knowledge Organization System Reference (SKOS)<sup>[SKOS-REF]</sup> to structure their vocabularies and properties from a number of other ontologies (DCTERMS<sup>[DCTERMS]</sup>, PAV<sup>[PAV]</sup>) to describe vocabulary elements and their relations.
 
-This document is a profile of the *Vocabulary Publications Profile*<sup>VOC-PUB</sup> and by profile, the definition of *Profile* from the Profiles Vocabulary<sup>PROF</sup> is used. A profile is: 
+This document is a profile of the *Vocabulary Publications Profile*<sup>[VOC-PUB]</sup> and by profile, the definition of *Profile* from the Profiles Vocabulary<sup>[PROF]</sup> is used. A profile is: 
 
 > A specification that constrains, extends, combines, or provides guidance or explanation about the usage of other specifications. 
 
@@ -82,22 +84,22 @@ In the next section, this document describes how vocabulary elements must be pre
 ### 2.1 Vocabulary
 
 ### 2.2 Concept
-From the SKOS Primer<sup>SKOS-PRIMER</sup>:
+From the SKOS Primer<sup>[SKOS-PRIMER]</sup>:
 
 > The fundamental element of the SKOS vocabulary is the concept. Concepts are the units of thought — ideas, meanings, or (categories of) objects and events—which underlie many knowledge organization systems 
 
 NVS vocabulary concepts are `skos:Concept` instances and have SKOS objects and datatype properties as well as properties from several other ontologies.
 
-<span style="color:darkred;">**2.2.1 Concept URI:** Each vocabulary concept *MUST* be identified by a URI</span>
+**2.2.1 Concept URI:** Each vocabulary concept *MUST* be identified by a URI
 
 ![](images/labels.png)  
 **Figure X:** Concept labels  
 
-<span style="color:darkred;">**2.2.2 Concept preferred labels:** Each vocabulary concept *MUST* have one and only one `skos:prefLabel` property per language</span>
+**2.2.2 Concept preferred labels:** Each vocabulary concept *MUST* have one and only one `skos:prefLabel` property per language
 
-<span style="color:darkred;">**2.2.3 Concept labels:** Each vocabulary concept *MAY* have any number of `skos:altLabel` properties and, if it does, the property must indicate its language</span>
+**2.2.3 Concept labels:** Each vocabulary concept *MAY* have any number of `skos:altLabel` properties and, if it does, the property must indicate its language
 
-<span style="color:darkred;">**2.2.2 Concept definition:** Each vocabulary concept *MAY* have `skos:definition` properties and, if it does, it may *MUST* only have one per language</span>
+**2.2.2 Concept definition:** Each vocabulary concept *MAY* have `skos:definition` properties and, if it does, it may *MUST* only have one per language
 
 
 
@@ -106,6 +108,10 @@ NVS vocabulary concepts are `skos:Concept` instances and have SKOS objects and d
 
 
 ## 3. References
+* **DCTERMS**
+    * DCMI Usage Board. *DCMI Metadata Terms*. 2020-01-20. DCMI. URL: <https://www.dublincore.org/specifications/dublin-core/dcmi-terms/>
+* **PAV**
+    *  Paolo Ciccarese & Stian Soiland-Reyes. *PAV - Provenance, Authoring and Versioning*. <http://www.mindinformatics.org/>. URL: <https://pav-ontology.github.io/pav/>   
 * **PROF**
     * Rob Atkinson; Nicholas J. Car (eds.). *The Profiles Vocabulary*. 18 December 2019. W3C Working Group Note. URL: <https://www.w3.org/TR/dx-prof/>
 * **SKOS-REF**

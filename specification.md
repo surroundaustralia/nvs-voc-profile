@@ -1,5 +1,16 @@
 # NVS Vocabulary Profile
 
+## Table of Contents
+
+[Metadata](#metadata)  
+[Abstract](#abstract)  
+[Namespaces](#namespaces)  
+[1. Introduction](#1-introduction)  
+[2. Requirements](#2-requirements)  
+[3. References](#3-references)  
+
+
+## Metadata
 * **URI**:
     * <https://w3id.org/profile/nvsvoc/specification>
 * **Title**:
@@ -48,6 +59,11 @@ For the list of all resources within this profile, see the profile definition:
 * **vocpub**
     * <https://w3id.org/profile/vocpub/>     
 
+### Diagram Key
+Diagrams in this Specification use the elements shown in Figure 1.
+
+![](images/keys.png)  
+**Figure 1:** Diagram Elements Key
 
 ## 1. Introduction
 The [British Oceanographic Data Centre (BODC)](https://www.bodc.ac.uk) defines a vocabulary as a controlled collection of defined terms that may or may not contain relationships between terms and relationships to terms in other vocabularies. 
@@ -66,6 +82,25 @@ In the next section, this document describes how vocabulary elements must be pre
 ### 2.1 Vocabulary
 
 ### 2.2 Concept
+From the SKOS Primer<sup>SKOS-PRIMER</sup>:
+
+> The fundamental element of the SKOS vocabulary is the concept. Concepts are the units of thought — ideas, meanings, or (categories of) objects and events—which underlie many knowledge organization systems 
+
+NVS vocabulary concepts are `skos:Concept` instances and have SKOS objects and datatype properties as well as properties from several other ontologies.
+
+<span style="color:darkred;">**2.2.1 Concept URI:** Each vocabulary concept *MUST* be identified by a URI</span>
+
+![](images/labels.png)  
+**Figure X:** Concept labels  
+
+<span style="color:darkred;">**2.2.2 Concept preferred labels:** Each vocabulary concept *MUST* have one and only one `skos:prefLabel` property per language</span>
+
+<span style="color:darkred;">**2.2.3 Concept labels:** Each vocabulary concept *MAY* have any number of `skos:altLabel` properties and, if it does, the property must indicate its language</span>
+
+<span style="color:darkred;">**2.2.2 Concept definition:** Each vocabulary concept *MAY* have `skos:definition` properties and, if it does, it may *MUST* only have one per language</span>
+
+
+
 
 ### 2.3 Agent
 
@@ -75,5 +110,7 @@ In the next section, this document describes how vocabulary elements must be pre
     * Rob Atkinson; Nicholas J. Car (eds.). *The Profiles Vocabulary*. 18 December 2019. W3C Working Group Note. URL: <https://www.w3.org/TR/dx-prof/>
 * **SKOS-REF**
     * Alistair Miles; Sean Bechhofer (eds.). *SKOS Simple Knowledge Organization System Reference*. 18 August 2009. W3C Recommendation. URL: <https://www.w3.org/TR/skos-reference/>
+* **SKOS-PRIMER**
+    * Antoine Isaac; Ed Summers (eds.). SKOS Simple Knowledge Organization System Primer. 18 August 2009. W3C Note. URL: <https://www.w3.org/TR/skos-primer/>
 * **VOC-PUB**
     * SURROUND Australia Pty Ltd. *Vocabulary Publication Profile*. 24th August 2020. Published Profile. URL: <https://w3id.org/profile/vocpub>

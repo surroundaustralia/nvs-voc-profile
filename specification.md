@@ -92,14 +92,34 @@ NVS vocabulary concepts are `skos:Concept` instances and have SKOS objects and d
 
 **2.2.1 Concept URI:** Each vocabulary concept *MUST* be identified by a URI
 
-![](images/labels.png)  
-**Figure X:** Concept labels  
+![](images/concept-identifiers.png)  
+**Figure X:** Concept identifiers
 
-**2.2.2 Concept preferred labels:** Each vocabulary concept *MUST* have one and only one `skos:prefLabel` property per language
+**2.2.2 Concept identifiers:** Non URI identifiers for concepts may be communicated using `skos:notation`, `dc:identifier` or `dcterms:identifier` properties with a string range value or a datatype value specialising xsd:string
 
-**2.2.3 Concept labels:** Each vocabulary concept *MAY* have any number of `skos:altLabel` properties and, if it does, the property must indicate its language
+![](images/concept-labels.png)  
+**Figure X:** Concept labels & definition
 
-**2.2.2 Concept definition:** Each vocabulary concept *MAY* have `skos:definition` properties and, if it does, it may *MUST* only have one per language
+**2.2.3 Concept preferred labels:** Each vocabulary concept *MUST* have one and only one `skos:prefLabel` property per language
+
+**2.2.4 Concept labels:** Each vocabulary concept *MAY* have any number of `skos:altLabel` properties and, if it does, the property must indicate its language
+
+**2.2.5 Concept definition:** Each vocabulary concept *MAY* have `skos:definition` properties and, if it does, it may *MUST* only have one per language
+
+![](images/concept-dates.png)  
+**Figure X:** Concept dates
+
+DRAFT: **2.2.6 Concept modified date:** Each vocabulary concept *MUST* have one and only one `dcterms:modified` property indicating an `xsd:date` or `xsd:dateTime` value
+
+DRAFT: **2.2.7 Concept created date:** Each vocabulary concept *MAY* have at most one `dcterms:created` property indicating an `xsd:date` or `xsd:dateTime` value
+
+![](images/concept-versions.png)  
+**Figure X:** Concept version links
+
+**2.2.8 Concept current version:** Each vocabulary concept *MUST* have one and only one `pav:hasCurrentVersion` property indicating a URI or one and only one `dcterms:isVersionOf` property indicating a URI
+
+
+
 
 
 

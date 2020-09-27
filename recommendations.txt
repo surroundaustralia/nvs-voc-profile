@@ -1,0 +1,70 @@
+Model additions/changes
+-----------------------
+
+* add a dct:identifier property to each Collection & ConceptScheme
+    - as per Concept-level use
+    - NVS is relient on and often discusses/communicates Collection & Concept Scheme "ID" (identifier)
+    - SKOS and RDF/OWL is relient on URIs for identifiers
+    - currently there is no data link between a Collection / Concept Scheme and its identifier: it is only inferred by pattern matching the URI
+    - SKOS / Dublin Core and other recommendations for associating toke / slug / string identifiers with nodes is to use a property such as dct:identifier or adms:identifier
+        - dct:identifier should be used for the simple case, <> dct:identifier "...". adms:identifier is an ObjectProperty for use when multiple identifiers are expected. Not relevant for NVS
+
+
+* change Collection / Concept Scheme dates
+    - dc:date is ambiguous - dct:created / dct:modified?
+    - pav:authoredOn is ambiguous
+        - PAV: "The date of creation of the resource representation."
+        - PAV: "pav:lastUpdateOn can be used to indicate minor updates that did not affect the creating date"
+    - recommendation:
+        - change the property indicating dc:date / pav:authoredOn to dct:modified
+            - at the Collection / Concept Scheme level, dcterms:modified should equal the latest Concept dcterms:modified value
+        - seek a vocabulary's / Concepts's first version's first dc:date to include in vocab metadata as dct:created
+    - don't use dcterms:issued as this implied a more workflow/approval created date than I think you're trying to convey
+
+
+* convert all instances of the token dc: to dcterms:
+    - dc: is ambiguous - could be Dublin Core Terms or Elements
+    - dce: (for Elements) is unusual!
+    - remove duplicative properties e.g. http://purl.org/dc/elements/1.1/identifier (for Concepts)
+
+
+* accepted / deprecated filter documentation
+    - in documentation, indicate the SPARQL query equivalent to the functions  performed by requests to URIs used to filter Concepts by owl:deprecated 
+    - there are potentially many filters that could be used and showing the SPARQL logic will indicate that people can filter however thy like, not just by using the accepted / deprecated filter URIs
+
+
+* link Concepts back to Collections
+    - Collections link to the Concepts within them (skos:member)
+    - ConceptSchemes link to Concpets within them (skos:hasTopConcept -> skos:narrower)
+        - Concepts in ConceptScheme link back (skos:topConceptOf / skos:inScheme)
+    - recommend dcterms:isPartOf
+        - very little "ontological commitment" with this property
+        - you already use dcterms:
+
+
+* change datatype for owl:deprecated from string to boolean
+    - <> owl:deprecated "true" . -> <> owl:deprecated true .
+        - Turtle spec: https://www.w3.org/TR/turtle/#grammar-production-BooleanLiteral, no "
+
+* status markers:
+    - replace <http://www.w3.org/2004/02/skos/core#note> as the property indicating status with:
+        - http://www.opengis.net/def/metamodel/ogc-na/status
+            - use values from "Register Item status values" (http://www.opengis.net/def/status)
+        - http://def.isotc211.org/iso19135/-1/2015/CoreModel#RE_ItemStatus
+            - "submitted", "valid", "superseded", "retired", "invalid" only
+    
+
+* change ISO URIs
+    - where do URIs like http://www.isotc211.org/schemas/grg/* come from?
+        - http://www.isotc211.org/schemas/grg/RE_RegisterManager -> http://def.isotc211.org/iso19135/-1/2015/CoreModel#Register.manager
+        - http://www.isotc211.org/schemas/grg/RE_RegisterOwner -> http://def.isotc211.org/iso19135/-1/2015/CoreModel#Register.owner
+
+
+
+* change datatype for http://www.w3.org/2002/07/owl#versionInfo to int
+    - you convey ordering with versionInfo, e.g. 1, 2, 3 - this is an integer property, not a string property (e.g. "35" < "4" but 35 > 4)
+
+
+* remove owl:versionInfo at the Concept level
+    - OWL definition is "The annotation property that provides version information for an ontology or another OWL construct."
+    - it is *allowed* to be used for any rdfs:Resource but it's *usually* used at the whole

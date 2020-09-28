@@ -151,6 +151,8 @@ PROVENANCE
     <Concept> ... <Concept#ID> (an rdf:Statement)
     <Concept#ID> prov:has_provenance <Statement2>
 
+    e.g. <http://vocab.nerc.ac.uk/collection/S01/current/S0111/>, <http://vocab.nerc.ac.uk/collection/S01/current/S0111/#I1473648>, <http://vocab.nerc.ac.uk/mapping/I/1473648/>
+
     - there is no way to discover provenance via SPARQL queries
 
     - recommend: remove the intermediate Statement altogether

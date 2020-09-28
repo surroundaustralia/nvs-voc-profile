@@ -144,3 +144,18 @@ CONCEPT
 
 PROVENANCE
 
+* restructure provenance
+    - currently reified provenance exists for Concept relations (e.g, skos:narrower) but the reifying Statement is linked to the Concept only by a pattern-matched URI, no properties
+    - the reifying Statement is then linked to another, redundant, provenance Statement via prov:has_provenance
+
+    <Concept> ... <Concept#ID> (an rdf:Statement)
+    <Concept#ID> prov:has_provenance <Statement2>
+
+    - there is no way to discover provenance via SPARQL queries
+
+    - recommend: remove the intermediate Statement altogether
+        <Concept> prov:has_provenance <Statement2>
+
+* some predicate references are incorrect with a typo
+    - e.g. for <http://vocab.nerc.ac.uk/mapping/I/1460594/>
+        <http://www.w3.org/2004/02/skos/core#narrower/> <-- extra trailing slash
